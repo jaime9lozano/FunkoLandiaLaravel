@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategoriasTableSeeder::class,
             FunkoSeeder::class,
+            UserSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
 
