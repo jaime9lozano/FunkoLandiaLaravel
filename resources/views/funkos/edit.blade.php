@@ -1,0 +1,57 @@
+@php use App\Models\Funko; @endphp
+{{-- Heredamos de nuestra plantilla --}}
+@extends('main')
+
+{{-- Ponemos el título --}}
+@section('title', 'Editar Funko')
+
+{{-- Agregamos el contenido de la página --}}
+@section('content')
+    <h1>Editar Funko</h1>
+
+    {{-- Codigos de validación de los errores, ver request validate del controlador --}}
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        <br/>
+    @endif
+
+    <form action="{{ route("funkos.update", $funko->id) }}" method="post">
+        @csrf
+        @method('PUT')
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input class="form-control" id="nombre" name="nombre" type="text" required value="{{$funko->nombre}}">
+        </div>
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input class="form-control" id="precio" min="0.0" name="precio" step="0.01" type="number" required
+                   value="{{$funko->precio}}">
+        </div>
+        <div class="form-group">
+            <label for="stock">Stock:</label>
+            <input class="form-control" id="stock" min="0" name="stock" type="number" required
+                   value="{{$funko->stock}}">
+        </div>
+        <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <select class="form-control" id="categoria" name="categoria" required>
+                <option>Seleccione una categoría</option>
+                @foreach($categorias as $categoria)
+                    <option @if($funko->categoria->id == $categoria->id) selected
+                            @endif value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Actualizar</button>
+        <a class="btn btn-secondary mx-2" href="{{ route('funkos.index') }}">Volver</a>
+    </form>
+
+@endsection
