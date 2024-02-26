@@ -55,18 +55,22 @@
                     <td>
                         <a class="btn btn-primary btn-sm"
                            href="{{ route('funkos.show', $funko->id) }}">Detalles</a>
-                        <a class="btn btn-secondary btn-sm"
-                           href="{{ route('funkos.edit', $funko->id) }}">Editar</a>
-                        <a class="btn btn-info  btn-sm"
-                           href="{{ route('funkos.editImage', $funko->id) }}">Imagen</a>
-                        <form action="{{ route('funkos.destroy', $funko->id) }}" method="POST"
-                              style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('¿Estás seguro de que deseas borrar este funko?')">Borrar
-                            </button>
-                        </form>
+                        @auth()
+                            @if(auth()->user()->role == 'admin')
+                                <a class="btn btn-secondary btn-sm"
+                                   href="{{ route('funkos.edit', $funko->id) }}">Editar</a>
+                                <a class="btn btn-info  btn-sm"
+                                   href="{{ route('funkos.editImage', $funko->id) }}">Imagen</a>
+                                <form action="{{ route('funkos.destroy', $funko->id) }}" method="POST"
+                                      style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                            onclick="return confirm('¿Estás seguro de que deseas borrar este funko?')">Borrar
+                                    </button>
+                                </form>
+                            @endif
+                        @endauth
                     </td>
                 </tr>
             @endforeach
@@ -77,6 +81,10 @@
         <p class='lead'><em>No se ha encontrado datos de funkos.</em></p>
     @endif
 
-    <a class="btn btn-success" href={{ route('funkos.create') }}>Nuevo Funko</a>
+    @auth()
+        @if(auth()->user()->role == 'admin')
+            <a class="btn btn-success" href="{{ route('funkos.create') }}">Nuevo Funko</a>
+        @endif
+    @endauth
 
 @endsection

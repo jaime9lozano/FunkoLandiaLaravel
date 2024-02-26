@@ -33,20 +33,28 @@
                     <td>
                         <a class="btn btn-primary btn-sm"
                            href="{{ route('categorias.show', $categoria->id) }}">Detalles</a>
-                        <a class="btn btn-secondary btn-sm"
-                           href="{{ route('categorias.edit', $categoria->id) }}">Editar</a>
-                        <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST"
-                              style="display: inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('¿Estás seguro de que deseas borrar esta categoria?')">Borrar
-                            </button>
-                        </form>
+                        @auth()
+                            @if(auth()->user()->role == 'admin')
+                                <a class="btn btn-secondary btn-sm"
+                                   href="{{ route('categorias.edit', $categoria->id) }}">Editar</a>
+                                <form action="{{ route('categorias.destroy', $categoria->id) }}" method="POST"
+                                      style="display: inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                            onclick="return confirm('¿Estás seguro de que deseas borrar esta categoria?')">Borrar
+                                    </button>
+                                </form>
+                            @endif
+                        @endauth
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+    @auth()
+        @if(auth()->user()->role == 'admin')
     <a class="btn btn-success" href="{{ route('categorias.create') }}">Nueva Categoria</a>
+        @endif
+    @endauth
 @endsection

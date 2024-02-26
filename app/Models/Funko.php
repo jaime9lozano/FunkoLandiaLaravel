@@ -47,22 +47,9 @@ class Funko extends Model
         // pasamos el nombre del producto y buscamos en la base de datos pero lo hacemos todo en minusculas
         return $query->where('modelo', 'LIKE', "%$name%")->orWhere('marca', 'LIKE', "%$name%");
     }*/
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($producto) {
-            $producto->uuid = Str::uuid();
-        });
-    }
-
-    // Para solucionar el problema del uuid
-
     public function scopeSearch($query, $search)
     {
-        return $query->whereRaw('LOWER(modelo) LIKE ?', ["%" . strtolower($search) . "%"])
-            ->orWhereRaw('LOWER(marca) LIKE ?', ["%" . strtolower($search) . "%"]);
+        return $query->whereRaw('LOWER(nombre) LIKE ?', ["%" . strtolower($search) . "%"]);
     }
 
     // Relación de producto con categoría:

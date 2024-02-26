@@ -1,4 +1,4 @@
-@php use App\Models\Producto; @endphp
+@php use App\Models\Funko; @endphp
 {{-- Heredamos de nuestra plantilla --}}
 @extends('main')
 

@@ -1,6 +1,6 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ url('index') }}">
+        <a class="navbar-brand" href="{{ route('funkos.index') }}">
             Mis funkos CRUD 2º DAW
         </a>
         <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
@@ -22,9 +22,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('funkos.index') }}">Funkos</a>
                 </li>
+                @if (Route::has('login'))
+                    @auth
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('categorias.index') }}">Categorias</a>
                 </li>
+                    @endauth
+                @endif
                 <!-- Otras opciones de menú -->
             </ul>
             <ul class="navbar-nav ml-auto">
