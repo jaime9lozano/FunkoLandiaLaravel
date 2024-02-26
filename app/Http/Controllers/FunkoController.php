@@ -17,9 +17,7 @@ class FunkoController extends Controller
 
     public function show($id)
     {
-        // Buscamos el producto por su id
         $funko = Funko::find($id);
-        // Devolvemos el producto
         return view('funkos.show')->with('funko', $funko);
     }
 
