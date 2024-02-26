@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="{{ route('funkos.index') }}">
             Mis funkos CRUD 2º DAW
         </a>

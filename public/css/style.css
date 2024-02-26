@@ -1,0 +1,149 @@
+/* Content */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    background-color: #252424;
+    color: white;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Estilo para los botones */
+.btn {
+    margin-right: 5px;
+}
+
+/* Estilo para el formulario de búsqueda */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Estilo para el enlace "Nuevo Funko" */
+.btn-success {
+    margin-bottom: 20px;
+}
+
+/* Estilo para el mensaje de "No se ha encontrado datos de funkos" */
+.lead {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Estilo para las imágenes en la tabla */
+table img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Estilo para el enlace de detalles */
+.btn-primary {
+    background-color: #007BFF;
+}
+
+/* Estilo para el enlace de editar */
+.btn-secondary {
+    background-color: #6C757D;
+}
+
+/* Estilo para el enlace de editar imagen */
+.btn-info {
+    background-color: #17A2B8;
+}
+
+/* Estilo para el botón de borrar */
+.btn-danger {
+    background-color: #DC3545;
+    border: 1px solid #DC3545;
+}
+
+/* Estilo para el formulario de búsqueda */
+.input-group {
+    margin-bottom: 20px;
+}
+
+/* Cambios en el estilo del botón de búsqueda */
+.btn-primary {
+    background-color: #007BFF;
+    border-color: #007BFF;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+h1 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+/* Header */
+
+/* Estilo general del header */
+header {
+    background-color: #4CAF50; /* Color de fondo oscuro */
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+    padding: 10px 20px; /* Ajustar el espaciado según sea necesario */
+}
+
+/* Estilo para el enlace de la marca */
+.navbar-brand {
+    font-size: 24px;
+    color: #ffffff; /* Color del texto blanco */
+}
+
+/* Estilo para el botón de alternancia del menú en dispositivos móviles */
+.navbar-toggler {
+    border-color: #ffffff; /* Color del icono del botón blanco */
+}
+
+/* Estilo para los enlaces del menú de navegación */
+.navbar-nav .nav-link {
+    font-size: 18px;
+    color: #ffffff; /* Color del texto blanco */
+    margin-right: 10px; /* Ajuste el margen según sea necesario */
+}
+
+/* Estilo para el menú en dispositivos móviles */
+.navbar-collapse {
+    background-color: #4CAF50; /* Fondo oscuro para el menú desplegable */
+}
+
+/* Estilo para el texto en la parte superior derecha del header */
+.navbar-text {
+    font-size: 16px;
+    color: #ffffff; /* Color del texto blanco */
+}
+
+/* Estilo para el enlace de login o home */
+.nav-item a {
+    color: #ffffff; /* Color del texto blanco */
+}
+
+/* Estilo para el hover de los enlaces del menú de navegación */
+.navbar-nav .nav-link:hover {
+    color: #181616; /* Color amarillo para el hover */
+}
+
+/* Estilo para el fondo de la barra de navegación al hacer hover */
+.navbar:hover {
+    background-color: #4CAF50; /* Cambio de color al hacer hover */
+}
+body {
+    background-color: #252424;
+}
