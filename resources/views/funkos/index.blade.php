@@ -45,7 +45,7 @@
                     <td>{{ $funko->stock }}</td>
                     <td>
                         @if($funko->imagen != Funko::$IMAGE_DEFAULT)
-                            <img height="50" src="{{ asset('storage/app/public/funkos' . $funko->imagen) }}"
+                            <img height="50" src="{{ asset('storage/' . $funko->imagen) }}"
                                  width="50">
                         @else
                             <img alt="Imagen por defecto" height="50" src="{{ Funko::$IMAGE_DEFAULT }}"
